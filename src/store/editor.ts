@@ -1,4 +1,5 @@
 import { SimpleStorage } from '@/lib/simple-storage';
+import dayjs from 'dayjs';
 import * as idbKeyVal from 'idb-keyval';
 import { atom } from 'jotai';
 import { RESET, atomWithStorage } from 'jotai/utils';
@@ -213,7 +214,7 @@ export default {
   secondTeacherDesignation: stringItem('second-teacher-designation', ''),
   secondTeacherDepartment: stringItem('second-teacher-department', ''),
   dateOfExperiment: atom<null | Date>(new Date()),
-  dateOfSubmission: atom<null | Date>(new Date()),
+  dateOfSubmission: atom<null | Date>(dayjs().subtract(7, 'days').toDate()),
   /**
    * Settings
    */
